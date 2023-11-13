@@ -4,6 +4,10 @@
 ```bash
 docker compose up
 ```
+### install packages
+```bash
+yarn
+```
 ### run app
 ```bash
 yarn start
