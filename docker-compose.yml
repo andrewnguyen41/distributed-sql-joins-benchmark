@@ -1,0 +1,43 @@
+# docker-compose.yml
+
+version: '3'
+services:
+  mysql_movie:
+    build:
+      context: ./movies
+      dockerfile: Dockerfile.mysql.movie
+    container_name: mysql_movie_container
+    volumes:
+      - ./movies/movies.sql:/docker-entrypoint-initdb.d/movies.sql
+    ports:
+      - "3306:3306"
+
+  mysql_rating:
+    build:
+      context: ./ratings
+      dockerfile: Dockerfile.mysql.rating
+    container_name: mysql_ratings_container
+    volumes:
+      - ./ratings/ratings.sql:/docker-entrypoint-initdb.d/ratings.sql
+    ports:
+      - "3307:3306"
+
+  # node_app:
+  #   image: node:latest
+  #   container_name: node_app_container
+  #   depends_on:
+  #     - mysql_movie
+  #     - mysql_ratings
+  #   volumes:
+  #     - ./app:/app
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - MYSQL_MOVIE_HOST=mysql_movie
+  #     - MYSQL_MOVIE_DATABASE=movie_db
+  #     - MYSQL_MOVIE_USER=root
+  #     - MYSQL_MOVIE_PASSWORD=root
+  #     - MYSQL_RATINGS_HOST=mysql_ratings
+  #     - MYSQL_RATINGS_DATABASE=ratings_db
+  #     - MYSQL_RATINGS_USER=root
+  #     - MYSQL_RATINGS_PASSWORD=root

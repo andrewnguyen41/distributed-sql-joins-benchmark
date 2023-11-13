@@ -1,0 +1,12 @@
+# Dockerfile.mysql.movie
+
+# Use the official MySQL image
+FROM mysql:latest
+
+# Set environment variables
+ENV MYSQL_DATABASE=movie_db
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_ALLOW_LOCAL_INFILE 1
+
+# Expose the MySQL port
+EXPOSE 3306

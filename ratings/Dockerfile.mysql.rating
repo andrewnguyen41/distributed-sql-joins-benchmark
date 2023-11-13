@@ -1,0 +1,14 @@
+# Dockerfile.mysql.ratings
+
+# Use the official MySQL image
+FROM mysql:latest
+
+# Set environment variables
+ENV MYSQL_DATABASE=rating_db
+ENV MYSQL_ROOT_PASSWORD=root
+
+# Copy the ratings.csv file to the container
+# COPY ratings.csv /docker-entrypoint-initdb.d/ratings.csv
+
+# Expose the MySQL port
+EXPOSE 3306
