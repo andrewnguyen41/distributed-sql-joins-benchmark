@@ -1,3 +1,3 @@
 # distributed-sql-joins-benchmark
-##Running
+## Running
 docker compose up
