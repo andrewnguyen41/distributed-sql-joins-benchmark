@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bloom-filter": "^0.2.0",
+    "bloom-filters": "^3.0.1",
     "express": "^4.18.2",
     "mysql2": "^3.6.3"
   }
