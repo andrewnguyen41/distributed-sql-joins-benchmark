@@ -17,11 +17,11 @@ async function performMapReduceJoin() {
         const ratings = await fetchRatingsForMovies(movieIds);
         console.log(`ratings count ${ratings.length}`)
 
-        const resultMapReduceJoin = []
+        const joinResult = []
         for (let movie of movies) {
             movieRatings = ratings.filter(rating => rating.movieId == movie.movieId)
             // Construct the joined data
-            resultMapReduceJoin.push({
+            joinResult.push({
                 movieId: movie.movieId,
                 title: movie.title,
                 genres: movie.genres,
@@ -34,7 +34,7 @@ async function performMapReduceJoin() {
         }
 
         const end = Date.now();
-        // console.log(`first result record: ${JSON.stringify(resultMapReduceJoin[0])}`)
+        // console.log(`first result record: ${JSON.stringify(joinResult[0])}`)
         console.log(`Join completed, total time: ${end - start}ms`)
 
     } catch (error) {

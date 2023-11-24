@@ -21,10 +21,10 @@ async function performBloomFilterJoin() {
         const ratingFilter = new BloomFilter(1000000, 4); // Bloom filter for ratings
         ratings.forEach(rating => ratingFilter.add(rating.movieId.toString()));
 
-        const resultMapReduceJoin = []
+        const joinResult = []
         for (let movie of movies) {
             if (ratingFilter.has(movie.movieId.toString())) {
-                resultMapReduceJoin.push({
+                joinResult.push({
                     movieId: movie.movieId,
                     title: movie.title,
                     genres: movie.genres,
@@ -34,7 +34,7 @@ async function performBloomFilterJoin() {
         }
 
         const end = Date.now();
-        // console.log(`first result record: ${JSON.stringify(resultMapReduceJoin[0])}`)
+        // console.log(`first result record: ${JSON.stringify(joinResult[0])}`)
         console.log(`Join completed, total time: ${end - start}ms`)
 
     } catch (error) {
