@@ -1,6 +1,14 @@
 const mysql = require('mysql2/promise');
 
 // Create connections to the databases
+const movieDB = mysql.createPool({
+    host: "localhost",
+    user: "root",
+    password: "root",
+    database: "movie_db",
+    port: 3306
+});
+
 const ratingDB = mysql.createPool({
     host: "localhost",
     user: "root",
@@ -9,13 +17,6 @@ const ratingDB = mysql.createPool({
     port: 3307
 });
 
-const movieDB = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "movie_db",
-    port: 3306
-});
 
 async function fetchMovieByGenre(genre) {
     const connection = await movieDB.getConnection();
