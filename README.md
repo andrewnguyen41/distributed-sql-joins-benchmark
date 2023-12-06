@@ -1,4 +1,5 @@
-# distributed-sql-joins-benchmark
+# Distributed Sql Joins Benchmark
+
 ## Running
 ### init Docker
 ```bash
