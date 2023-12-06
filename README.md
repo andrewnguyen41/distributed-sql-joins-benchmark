@@ -1,5 +1,6 @@
 # Distributed Sql Joins Benchmark
 
+![Flow](./flow.jpg)
 ## Running
 ### init Docker
 ```bash
