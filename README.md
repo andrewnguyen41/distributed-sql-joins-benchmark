@@ -1,5 +1,5 @@
 # Distributed Sql Joins Benchmark
-
+## App Flow
 ![Flow](./flow.jpg)
 ## Running
 ### init Docker
